@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 
 class SignUpController extends GetxController {
   RxBool isLoading = false.obs;
+  RxBool isPasswordVisible = false.obs;
+
 
   @override
   void dispose() {
@@ -23,10 +25,17 @@ class SignUpController extends GetxController {
       TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
 
+  void togglePasswordVisibility() {
+    isPasswordVisible.value = !isPasswordVisible.value;
+  }
 
 
-  void signUp() {
+  void signUp() async {
     if (formKey.currentState!.validate()) {
+      isLoading.value = true;
+      await Future.delayed(const Duration(seconds: 2));
+      isLoading.value = false;
+
       // Perform sign-up logic here
     }
   }

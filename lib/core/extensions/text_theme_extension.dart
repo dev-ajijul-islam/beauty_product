@@ -5,4 +5,6 @@ extension TextThemeExtension on BuildContext {
 
   TextStyle? get bodyMedium => textTheme.bodyLarge;
   TextStyle? get titleLarge => textTheme.titleLarge;
+  TextStyle? get bodyLarge => textTheme.bodyLarge;
+  TextStyle? get titleMedium => textTheme.titleMedium;
 }

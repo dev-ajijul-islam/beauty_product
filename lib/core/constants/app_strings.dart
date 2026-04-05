@@ -30,4 +30,16 @@ class AppStrings {
   static const String enterCorrectEmail = "Enter correct email";
   static const String enterCorrectPassword = "Enter correct password";
 
+  // forgot password screen
+  static const String forgotPasswordMessage =
+      "please enter your email address ";
+  static const String continueText = "Continue";
+
+  // verify otp screen
+  static const String resendOtp = "Resend OTP";
+
+  // create new password
+  static const String createPassword = "Create New \nPassword";
+  static const String changePasswordSuccessMessage =
+      "Your password changed  has been successfully ";
 }

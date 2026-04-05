@@ -48,7 +48,7 @@ class Validator {
   }
 
   static String? confirmPassword({
-    required String value,
+    required String? value,
     required TextEditingController passwordController,
   }) {
     final error = required(value);

@@ -64,22 +64,49 @@ class SignUpScreen extends StatelessWidget {
                           labelText: AppStrings.email,
                         ),
                       ),
-                      TextFormField(
-                        validator: (value) => Validator.password(value),
-                        controller: signUpController.passwordController,
-                        decoration: InputDecoration(
-                          labelText: AppStrings.password,
+                      Obx(
+                        () => TextFormField(
+                          obscureText:
+                              !signUpController.isPasswordVisible.value,
+                          validator: (value) => Validator.password(value),
+                          controller: signUpController.passwordController,
+                          decoration: InputDecoration(
+                            suffixIcon: GestureDetector(
+                              onTap: signUpController.togglePasswordVisibility,
+                              child: Icon(
+                                signUpController.isPasswordVisible.value
+                                    ? Icons.visibility_off_outlined
+                                    : Icons.visibility_outlined,
+                                color: AppColors.grey,
+                              ),
+                            ),
+                            labelText: AppStrings.password,
+                          ),
                         ),
                       ),
-                      TextFormField(
-                        validator: (value) => Validator.confirmPassword(
-                          value: value!,
-                          passwordController:
-                              signUpController.passwordController,
-                        ),
-                        controller: signUpController.confirmPasswordController,
-                        decoration: InputDecoration(
-                          labelText: AppStrings.confirmPassword,
+                      Obx(
+                        () => TextFormField(
+                          obscureText:
+                              !signUpController.isPasswordVisible.value,
+                          validator: (value) => Validator.confirmPassword(
+                            value: value!,
+                            passwordController:
+                                signUpController.passwordController,
+                          ),
+                          controller:
+                              signUpController.confirmPasswordController,
+                          decoration: InputDecoration(
+                            suffixIcon: GestureDetector(
+                              onTap: signUpController.togglePasswordVisibility,
+                              child: Icon(
+                                signUpController.isPasswordVisible.value
+                                    ? Icons.visibility_off_outlined
+                                    : Icons.visibility_outlined,
+                                color: AppColors.grey,
+                              ),
+                            ),
+                            labelText: AppStrings.confirmPassword,
+                          ),
                         ),
                       ),
                       SizedBox(height: 1.h),
@@ -90,7 +117,7 @@ class SignUpScreen extends StatelessWidget {
                             signUpController.phoneNumberController,
                         selectorConfig: SelectorConfig(
                           trailingSpace: false,
-                          selectorType: .DROPDOWN,
+                          selectorType: .BOTTOM_SHEET,
                           leadingPadding: 0,
                         ),
                         inputDecoration: InputDecoration(
